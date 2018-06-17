@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<p class="text-success">【纵向登录布局】</p>
+<hr/>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label class="form-label">用户名</label>
+            <input type="text" class="form-control" placeholder="请输入用户名"/>
+            <small class="form-text text-muted">用户名长度为8-20，不能使用纯数字作为密码</small>
+        </div>
+        <div class="form-group">
+            <label class="form-label">密码</label>
+            <input type="password" class="form-control" placeholder="请输入密码"/>
+        </div>
+        <div class="form-group">
+            <label class="form-label">性别</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="0" checked>
+                <label class="form-check-label">
+                    男
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="1">
+                <label class="form-check-label">
+                    女
+                </label>
+            </div>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox"/>
+            <label class="form-check-label">
+                <small class="form-text text-muted">10天自动登录</small>
+            </label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="form-control btn btn-primary">登录</button>
+        </div>
+    </form>
+</div>
+<p class="text-success">【横向登录布局】</p>
+<hr/>
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-2">
+                <label class="col-form-label">用户名</label>
+            </div>
+            <div class="form-group col-10">
+                <input type="text" class="form-control col-10" placeholder="请输入用户名"/>
+                <small class="form-text text-muted offset-0">用户名长度为8-20，不能使用纯数字作为密码</small>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-2">
+                <label class="col-form-label ">密&nbsp;&nbsp;&nbsp;码</label>
+            </div>
+            <div class="form-group col-10">
+                <input type="password" class="form-control col-10" placeholder="请输入密码"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-2">
+                <label class="col-form-label">性&nbsp;&nbsp;&nbsp;别</label>
+            </div>
+            <div class="form-group col-10 mt-1">
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" value="0" checked>
+                    <label class="form-check-label">
+                        男
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" value="1">
+                    <label class="form-check-label">
+                        女
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="form-control btn btn-primary">登录</button>
+        </div>
+    </form>
+</div>
+
+<p class="text-success">【横纵向混合注册布局】</p>
+<hr/>
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="form-label">Email</label>
+                <input class="form-control" type="email" placeholder="请输入Email地址" required/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-label">密码</label>
+                <input class="form-control" type="password" placeholder="请输入密码"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">地址</label>
+            <input class="form-control" type="text" placeholder="请输入家庭住址"/>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="form-label">City</label>
+                <input class="form-control" type="text" placeholder="请输入城市">
+            </div>
+            <div class="form-group col-md-4">
+                <label class="form-label">State</label>
+                <select class="form-control">
+                    <option selected value="离职">01</option>
+                    <option value="在职">02</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="form-label">Zip</label>
+                <input class="form-control" type="text" placeholder="请输入邮编"/>
+            </div>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox"/>
+            <label class="form-check-label">Check me out</label>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="form-control btn btn-primary">注册</button>
+        </div>
+    </form>
+</div>
+
+<p class="text-success">【表单验证】</p>
+<hr/>
+<div class="container">
+    <!--<form class="was-validated">-->
+    <!--<div class="custom-control custom-tel mb-3">-->
+    <!--<input type="tel" class="custom-control-input"  required>-->
+    <!--<label class="custom-control-label" >姓名</label>-->
+    <!--<div class="invalid-feedback">姓名必填字段</div>-->
+    <!--</div>-->
+
+    <!--<div class="custom-control custom-checkbox mb-3">-->
+    <!--<input type="checkbox" class="custom-control-input" id="customControlValidation1" required>-->
+    <!--<label class="custom-control-label" for="customControlValidation1">自动登录</label>-->
+    <!--<div class="invalid-feedback">登录必填字段</div>-->
+    <!--</div>-->
+
+    <!--<div class="custom-control custom-radio">-->
+    <!--<input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked"-->
+    <!--required>-->
+    <!--<label class="custom-control-label" for="customControlValidation2">男</label>-->
+    <!--</div>-->
+    <!--<div class="custom-control custom-radio mb-3">-->
+    <!--<input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked"-->
+    <!--required>-->
+    <!--<label class="custom-control-label" for="customControlValidation3">女</label>-->
+    <!--<div class="invalid-feedback">性别必填字段</div>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+    <!--<select class="custom-select" required>-->
+    <!--<option value="">请选择</option>-->
+    <!--<option value="1">小学</option>-->
+    <!--<option value="2">初中</option>-->
+    <!--<option value="3">高中</option>-->
+    <!--</select>-->
+    <!--<div class="invalid-feedback">学历必填字段</div>-->
+    <!--</div>-->
+
+    <!--<div class="custom-file">-->
+    <!--<input type="file" class="custom-file-input" id="validatedCustomFile" required>-->
+    <!--<label class="custom-file-label" for="validatedCustomFile">Choose file...</label>-->
+    <!--<div class="invalid-feedback">照片必填字段</div>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--form表单onsubmit属性写上调用的js方法 如下调用checkForm()方法-->
+    <form onsubmit="return checkForm()">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" class="form-control" name="username" id="username" value="admin@123.com" placeholder="User Name">
+            <div class="invalid-feedback" id="username-feedback"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox"/>
+                <label class="form-check-label">记住我</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="form-control btn btn-primary">登录</button>
+        </div>
+    </form>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">First and last name</span>
+        </div>
+        <input type="text" class="form-control">
+        <input type="text" class="form-control">
+    </div>
+</div>
+<script>
+    //以检查用户名不能为空不能有特殊符号为例
+    function checkForm() {
+        var username = document.getElementById("username");//获取username那个div
+        var feedback = document.getElementById("username-feedback");
+        //不能为空
+        if (username.value == "") {
+            feedback.innerHTML = "用户名为空！";//修改username-feedback div中的内容
+            username.classList.remove("is-valid");//清除合法状态
+            username.classList.add("is-invalid");//添加非法状态
+            return false;//onsubmit  return false阻止表单提交
+        }
+        //不能有特殊符号
+        var patrn = /[@#\$%\^&\*]+/g;//正则表达式
+        if (patrn.exec(username.value)) {
+            feedback.innerHTML = "用户名不能存在特殊符号！";
+            username.classList.remove("is-valid");
+            username.classList.add("is-invalid");
+            return false;
+        }
+
+        //清除错误提示，改成成功提示
+        username.classList.remove("is-invalid");
+        username.classList.add("is-valid");
+        feedback.innerHTML = "";
+        return true;
+    }
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

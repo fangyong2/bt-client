@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="../../../../favicon.ico">-->
+
+    <title>流量预测分析</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="./css/dashboard.css" rel="stylesheet">
+    <!--<link href="./css/pagination.css" rel="stylesheet">-->
+</head>
+
+<body>
+<!--顶部导航区域开始-->
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">杭州移动</a>
+    <!--<input class="form-control form-control-dark"   type="text" placeholder="Search" aria-label="..">-->
+
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">退出</a>
+        </li>
+    </ul>
+</nav>
+<!--顶部导航区域结束-->
+<div class="container-fluid">
+    <div class="row">
+        <!--左边导航菜单开始-->
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="data01.html">
+                            <span data-feather="home"></span>
+                            流量预测分析 <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data02.html" target="_parent">
+                            <span data-feather="file"></span>
+                            客户详单查询
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>离线分析平台</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="download-cloud"></span>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="echarts01.html">
+                            <span data-feather="file-text"></span>
+                            基础数据统计分析
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            客户画像分析
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            用户出行轨迹分析
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            终端分析
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左边导航菜单结束-->
+
+        <!--右侧内容展示开始-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <!--基站编码查询区域开始-->
+            <form class="form-inline">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">基站编码</span>
+                    </div>
+                    <input type="text" class="form-control" name="basestation" placeholder="请输入基站编码"/>
+                </div>
+                <button id="search" class="btn btn-sm btn-outline-dark my-2 ml-2" type="button">Search</button>
+                <!--<label class="from-label">基站编码</label>-->
+                <!--<input class="form-control form-control-sm" 基站编码 type="text" placeholder="请输入基站编码">-->
+                <!--<button class="btn btn-sm btn-outline-dark my-2" type="button">Search</button>-->
+            </form>
+            <!--基站编码查询区域结束-->
+
+            <!-- 流量预测查询开始-->
+            <table class="table">
+            </table>
+            <div class="row justify-content-center">
+                <div class="col"><label class="text-dark">总共：
+                    <small class="text-info">300</small>
+                    条记录，共
+                    <small class="text-info">300</small>
+                    页</label></div>
+                <div class="col">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- 流量预测查询结束-->
+        </main>
+        <!--右侧内容展示结束-->
+    </div>
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<script src="js/myjs.js"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+<script>
+    $(function () {
+        <!--搜索按钮开始-->
+        $("form > button.my-2").bind("click", function(){
+            console.log("search click");
+            dome();
+        });
+
+        <!--搜索按钮结束-->
+        //表格头
+        var header = "  <thead class=\"thead-light\">\n" +
+            "    <tr>\n" +
+            "      <th scope=\"col\">#</th>\n" +
+            "      <th scope=\"col\">基站编码</th>\n" +
+            "      <th scope=\"col\">当前小时流量</th>\n" +
+            "      <th scope=\"col\">预测第1小时</th>\n" +
+            "      <th scope=\"col\">预测第2小时</th>\n" +
+            "      <th scope=\"col\">预测第3小时</th>\n" +
+            "      <th scope=\"col\">预测第4小时</th>\n" +
+            "      <th scope=\"col\">预测第5小时</th>\n" +
+            "    </tr>\n" +
+            "  </thead>\n" +
+            "  <tbody>";
+
+        var url = "http://203.195.243.104:8080/bt-server/tp/selectByFy";
+        var pageSize = 6; //默认每页显示6条记录
+        var pageNumber = 1; //当前页
+        var records = 0; //总记录数
+        var pages = 0; //总页数
+        function dome(){
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {"pageSize": pageSize, "pageNumber": pageNumber,"basestation":$("form > div > input").val()},
+                dataType: "json",
+                success: function (data) {
+                    $("table").empty();   //清空resText里面的所有内容
+                    var html = '';
+                    records = data.total; //总记录数
+                    pages = Math.ceil(records / pageSize);
+                    var htmlPage = '';
+                    html += header;
+                    $.each(data.rows, function (commentIndex, comment) {
+                        html += "<tr><th scope=\"row\">" + (data.rows[commentIndex].id) + "</th>" +
+                            "<td>" + data.rows[commentIndex].basestation + "</td>" +
+                            "<td>" + data.rows[commentIndex].trafficCurrent + "</td>" +
+                            "<td>" + data.rows[commentIndex].traffic1h + "</td>" +
+                            "<td>" + data.rows[commentIndex].traffic2h + "</td>" +
+                            "<td>" + data.rows[commentIndex].traffic3h + "</td>" +
+                            "<td>" + data.rows[commentIndex].traffic4h + "</td>" +
+                            "<td>" + data.rows[commentIndex].traffic5h + "</td>" +
+                            "</tr>";
+                    });
+                    html += " </tbody>\n";
+                    $('table').html(html);
+
+                    $('.text-info').html(records);
+                    $('.text-info:last').html(pages);
+
+
+                    <!--分页标签开始-->
+                    $(".pagination").createPage({
+                        totalPage: pages,
+                        currPage: pageNumber,
+                        turndown: 'true',
+                        backFn: function (p) {
+                            pageNumber = p;
+                            console.log("回调函数：" + p);
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: {"pageSize": pageSize, "pageNumber": pageNumber,"basestation":$("form > div > input").val()},
+                                dataType: "json",
+                                success: function (data) {
+                                    $("table").empty();   //清空resText里面的所有内容
+                                    var html = '';
+                                    html +=header;
+                                    $.each(data.rows, function (commentIndex, comment) {
+                                        html += "<tr><th scope=\"row\">" + (data.rows[commentIndex].id) + "</th>" +
+                                            "<td>" + data.rows[commentIndex].basestation + "</td>" +
+                                            "<td>" + data.rows[commentIndex].trafficCurrent + "</td>" +
+                                            "<td>" + data.rows[commentIndex].traffic1h + "</td>" +
+                                            "<td>" + data.rows[commentIndex].traffic2h + "</td>" +
+                                            "<td>" + data.rows[commentIndex].traffic3h + "</td>" +
+                                            "<td>" + data.rows[commentIndex].traffic4h + "</td>" +
+                                            "<td>" + data.rows[commentIndex].traffic5h + "</td>" +
+                                            "</tr>";
+                                    });
+
+                                    html += " </tbody>\n" ;
+                                    $('table').html(html);
+
+                                }
+                            });
+                        }
+                    });
+                    <!--分页标签结束-->
+                }
+            });
+        }
+        dome();
+    });
+</script>
+<!--</script>-->
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>v=3.0--marker</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=6E91WCcoZQoDqrnm1MVONYcVP5fbGequ"></script>
+    <style type="text/css">
+        body, html,#container {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+</head>
+<body>
+<div id="container"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var map = new BMap.Map("container");
+    var point = new BMap.Point(113.9434615175,22.5382465320);
+    map.centerAndZoom(point, 15);
+    map.addControl(new BMap.NavigationControl());
+    map.addControl(new BMap.ScaleControl());
+    map.setDefaultCursor("crosshair");
+
+    var myIcon = new BMap.Icon("http://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {
+        offset: new BMap.Size(10, 25), // 指定定位位置
+        imageOffset: new BMap.Size(0, 0 - 10 * 25) // 设置图片偏移
+    });
+    var marker=new BMap.Marker(point,{icon:myIcon});
+
+    marker.enableDragging();  //设置点可以拖拽
+    map.addOverlay(marker);     // 将标注添加到地图中
+
+    //添加事件
+    marker.addEventListener("click", function(e){
+        alert("您点击了标注");
+        alert(e.point.lng + ", " + e.point.lat);
+    });
+</script>

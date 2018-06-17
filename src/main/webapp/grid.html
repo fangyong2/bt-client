@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style type="text/css">
+        /*div {*/
+        /*border-style: solid;*/
+        /*border-width: 1px;*/
+        /*}*/
+        .row-height {
+            height: 60px;
+        }
+
+        .col-height {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<p class="text-warning">【.col-sm- 540px .col-md- 720px .col-lg- 960px .col-xl- 1140px】</p>
+<div class="container">
+    <div class="row">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="w-100"></div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+    </div>
+</div>
+<p class="text-success">【Setting one column width】</p>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            1 of 3
+        </div>
+        <div class="col-6">
+            2 of 3 (wider)
+        </div>
+        <div class="col">
+            3 of 3
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            1 of 3
+        </div>
+        <div class="col-5">
+            2 of 3 (wider)
+        </div>
+        <div class="col">
+            3 of 3
+        </div>
+    </div>
+</div>
+
+<p class="text-success">【Use col-{breakpoint}-auto classes to size columns based on the natural width of their
+    content】</p>
+<hr/>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+            1 of 3
+        </div>
+        <div class="col-md-auto">
+            Variable width content
+        </div>
+        <div class="col col-lg-2">
+            3 of 3
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            1 of 3
+        </div>
+        <div class="col-md-auto">
+            Variable width content
+        </div>
+        <div class="col col-lg-2">
+            3 of 3
+        </div>
+    </div>
+</div>
+
+<p class="text-success">【Mix and match】</p>
+<hr/>
+<div class="container">
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <div class="row">
+        <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+    </div>
+</div>
+
+<p class="text-success">【Vertical alignment】</p>
+<hr/>
+<div class="container">
+    <div class="row align-items-start row-height" style="background-color: aliceblue">
+        <div class="col col-height">
+            One of three columns
+        </div>
+        <div class="col col-height">
+            One of three columns
+        </div>
+        <div class="col col-height">
+            One of three columns
+        </div>
+    </div>
+    <div class="row align-items-center row-height" style="background-color: antiquewhite">
+        <div class="col col-height">
+            One of three columns
+        </div>
+        <div class="col col-height">
+            One of three columns
+        </div>
+        <div class="col col-height">
+            One of three columns
+        </div>
+    </div>
+    <div class="row align-items-end row-height" style="background-color: aquamarine">
+        <div class="col col-height">
+            One of three columns
+        </div>
+        <div class="col col-height">
+            One of three columns
+        </div>
+        <div class="col col-height">
+            One of three columns
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-height">
+        <div class="col align-self-start col-height">
+            One of three columns
+        </div>
+        <div class="col align-self-center col-height">
+            One of three columns
+        </div>
+        <div class="col align-self-end col-height">
+            One of three columns
+        </div>
+    </div>
+</div>
+
+<p class="text-success">【Horizontal alignment】</p>
+<hr/>
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="col-4">
+            One of two columns
+        </div>
+        <div class="col-4">
+            One of two columns
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            One of two columns
+        </div>
+        <div class="col-4">
+            One of two columns
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-4">
+            One of two columns
+        </div>
+        <div class="col-4">
+            One of two columns
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-4" style="background-color: aquamarine">
+            One of two columns
+        </div>
+        <div class="col-4" style="background-color: antiquewhite">
+            One of two columns
+        </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class="col-4" style="background-color: aquamarine">
+            One of two columns
+        </div>
+        <div class="col-4" style="background-color: antiquewhite">
+            One of two columns
+        </div>
+    </div>
+</div>
+
+<p class="text-success">【No gutters】</p>
+<hr/>
+<div class="container">
+    <div class="row no-gutters">
+        <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    </div>
+</div>
+
+<p class="text-success">【w-100 d-none d-md-block】</p>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+
+        <!-- Force next columns to break to new line at md breakpoint and up -->
+        <div class="w-100 d-none d-md-block"></div>
+
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+        <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+    </div>
+</div>
+
+<p class="text-success">【Use .order- classes for controlling the visual order of your content】</p>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            First, but unordered
+        </div>
+        <div class="col order-12">
+            Second, but last
+        </div>
+        <div class="col order-1">
+            Third, but first
+        </div>
+    </div>
+</div>
+
+<p class="text-success">【Move columns to the right using .offset-md-* classes】</p>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+        <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">.col-sm-5 .offset-sm-2 .col-md-6 .offset-md-0</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+        <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">.col-sm-6 .col-md-5 .offset-md-2 .col-lg-6
+            .offset-lg-0
+        </div>
+    </div>
+</div>
+
+<p class="text-success">【Margin utilities】</p>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+        <div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+    </div>
+    <div class="row">
+        <div class="col-auto mr-auto">.col-auto .mr-auto</div>
+        <div class="col-auto">.col-auto</div>
+    </div>
+</div>
+
+<p class="text-success">【Nesting】</p>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            Level 1: .col-sm-9
+            <div class="row">
+                <div class="col-8 col-sm-6">
+                    Level 2: .col-8 .col-sm-6
+                </div>
+                <div class="col-4 col-sm-6">
+                    Level 2: .col-4 .col-sm-6
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
