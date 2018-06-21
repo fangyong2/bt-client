@@ -1,22 +1,101 @@
 <!DOCTYPE html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
     <title>v=3.0--marker</title>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=6E91WCcoZQoDqrnm1MVONYcVP5fbGequ"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=3.0&ak=6E91WCcoZQoDqrnm1MVONYcVP5fbGequ"></script>
+
     <style type="text/css">
-        body, html,#container {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+        body, html, #container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <style>
+        #msg {
+            width: 266px;
+            position: fixed;
+            z-index: 999;
+            top: 49%;
+            margin-top: -80px;
+            left: 50%;
+            margin-left: -133px;
+            background: #fff;
+            box-shadow: 5px 5px 8px #999;
+            font-size: 17px;
+            color: #666;
+            border: 1px solid #f8f8f8;
+            text-align: center;
+            line-height: 2rem;
+            display: inline-block;
+            padding-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        #msg_top {
+            background: #f8f8f8;
+            padding: 5px 15px 5px 20px;
+            text-align: left;
+        }
+
+        #msg_top span {
+            font-size: 22px;
+            float: right;
+            cursor: pointer;
+        }
+
+        #msg_cont {
+            padding: 15px 20px 20px;
+            text-align: left;
+        }
+
+        #msg_clear {
+            display: inline-block;
+            color: #fff;
+            padding: 1px 15px;
+            background: #8fc31f;
+            border-radius: 2px;
+            float: right;
+            margin-right: 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+
+
 <div id="container"></div>
+
+
 </body>
 </html>
 
 <script type="text/javascript">
+
+    // 编写自定义函数,创建标注
+    function addMarker(point) {
+        var marker = new BMap.Marker(point, {icon: myIcon});
+        //添加事件
+        marker.addEventListener("click", function (e) {
+            alert(e.point.lng + ", " + e.point.lat);
+        });
+        map.addOverlay(marker);// 将标注添加到地图中
+    }
+
+    //编写自定义函数alert
+    function alert(e){
+        $("body").append('<div id="msg"><div id="msg_top">信息<span class="msg_close">×</span></div><div id="msg_cont">'+e+'</div><div class="msg_close" id="msg_clear">确定</div></div>');
+        $(".msg_close").click(function (){
+            $("#msg").remove();
+        });
+    }
+
     var map = new BMap.Map("container");
-    var point = new BMap.Point(113.9434615175,22.5382465320);
-    map.centerAndZoom(point, 15);
     map.addControl(new BMap.NavigationControl());
     map.addControl(new BMap.ScaleControl());
     map.setDefaultCursor("crosshair");
@@ -25,14 +104,20 @@
         offset: new BMap.Size(10, 25), // 指定定位位置
         imageOffset: new BMap.Size(0, 0 - 10 * 25) // 设置图片偏移
     });
-    var marker=new BMap.Marker(point,{icon:myIcon});
 
-    marker.enableDragging();  //设置点可以拖拽
-    map.addOverlay(marker);     // 将标注添加到地图中
 
-    //添加事件
-    marker.addEventListener("click", function(e){
-        alert("您点击了标注");
-        alert(e.point.lng + ", " + e.point.lat);
-    });
+    var point01 = new BMap.Point(113.9434615175, 22.5382465320);
+    map.centerAndZoom(point01, 10);
+    var point02 = new BMap.Point(114.0946602127, 22.5526403819);
+    map.centerAndZoom(point02, 10);
+    var point03 = new BMap.Point(113.8025775730, 22.7545883796);
+    map.centerAndZoom(point03, 10);
+    addMarker(point01);
+    addMarker(point02);
+    addMarker(point03);
+
+
 </script>
+
+
+

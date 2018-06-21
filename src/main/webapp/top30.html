@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../../../favicon.ico">-->
 
-    <title>基础数据统计分析</title>
+    <title>终端分析-top30</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -101,7 +101,7 @@
 </div>
 
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="js//popper.min.js"
+<script src="js/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"
@@ -115,13 +115,20 @@
 </script>
 <script>
     $(function () {
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById("container"));
-        var data01 = [320, 332, 301, 334, 390, 1000, 1300, 1000, 800, 600, 500, 200];
-        var data02 = [220, 182, 191, 234, 290, 850, 1200, 900, 700, 500, 400, 100];
-        // 指定图表的配置项和数据
-        var option = {
-            color: ['#e5323e', '#006699'],
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+
+        var data2017 = [18203, 23489, 29034, 104970, 431744, 630230];
+        var data2018 = [19325, 23438, 31000, 121594, 534141, 881807];
+        app.title = 'top手机30 - 条形图';
+
+        option = {
+            title: {
+                text: 'top30手机',
+                subtext: '数据来自网络'
+            },
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -129,52 +136,40 @@
                 }
             },
             legend: {
-                data: ['Forest', 'Steppe']
+                data: ['2018年', '2017年']
             },
-            toolbox: {
-                show: true,
-                orient: 'vertical',
-                left: 'right',
-                top: 'center',
-                feature: {
-                    mark: {show: true},
-                    dataView: {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-                    restore: {show: true},
-                    saveAsImage: {show: true}
-                }
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
             },
-            calculable: true,
-            xAxis: [
-                {
-                    type: 'category',
-                    axisTick: {show: false},
-                    data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                type: 'category',
+                data: ['联想', '魅族', '小米', '中兴', '华为', '全国手机年销售(万)']
+            },
             series: [
                 {
-                    name: 'Forest',
+                    name: '2017年',
                     type: 'bar',
-                    barGap: 0,
-                    //label: labelOption,
-                    data: data01
+                    data: data2017
                 },
                 {
-                    name: 'Steppe',
+                    name: '2018年',
                     type: 'bar',
-                    //label: labelOption,
-                    data: data02
+                    data: data2018
                 }
             ]
         };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+
     });
 </script>
 

@@ -13,7 +13,55 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="./css/dashboard.css" rel="stylesheet">
-    <!--<link href="./css/pagination.css" rel="stylesheet">-->
+    <style>
+        #msg {
+            width: 266px;
+            position: fixed;
+            z-index: 999;
+            top: 49%;
+            margin-top: -80px;
+            left: 50%;
+            margin-left: -133px;
+            background: #fff;
+            box-shadow: 5px 5px 8px #999;
+            font-size: 17px;
+            color: #666;
+            border: 1px solid #f8f8f8;
+            text-align: center;
+            line-height: 2rem;
+            display: inline-block;
+            padding-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        #msg_top {
+            background: #f8f8f8;
+            padding: 5px 15px 5px 20px;
+            text-align: left;
+        }
+
+        #msg_top span {
+            font-size: 22px;
+            float: right;
+            cursor: pointer;
+        }
+
+        #msg_cont {
+            padding: 15px 20px 20px;
+            text-align: left;
+        }
+
+        #msg_clear {
+            display: inline-block;
+            color: #fff;
+            padding: 1px 15px;
+            background: #8fc31f;
+            border-radius: 2px;
+            float: right;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -93,89 +141,65 @@
 
         <!--右侧内容展示开始-->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-            <div id="container" style="width: 900px;height:400px;"></div>
+            <div id="container" style="width: 800px;height: 500px;border:#ccc solid 1px;"></div>
         </main>
         <!--右侧内容展示结束-->
     </div>
 </div>
 
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="js//popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 <!-- Icons -->
 <script src="js/feather.min.js"></script>
-<script src="js/echarts.min.js"></script>
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=3.0&ak=6E91WCcoZQoDqrnm1MVONYcVP5fbGequ"></script>
 <script>
     feather.replace()
 </script>
-<script>
-    $(function () {
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById("container"));
-        var data01 = [320, 332, 301, 334, 390, 1000, 1300, 1000, 800, 600, 500, 200];
-        var data02 = [220, 182, 191, 234, 290, 850, 1200, 900, 700, 500, 400, 100];
-        // 指定图表的配置项和数据
-        var option = {
-            color: ['#e5323e', '#006699'],
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                }
-            },
-            legend: {
-                data: ['Forest', 'Steppe']
-            },
-            toolbox: {
-                show: true,
-                orient: 'vertical',
-                left: 'right',
-                top: 'center',
-                feature: {
-                    mark: {show: true},
-                    dataView: {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-                    restore: {show: true},
-                    saveAsImage: {show: true}
-                }
-            },
-            calculable: true,
-            xAxis: [
-                {
-                    type: 'category',
-                    axisTick: {show: false},
-                    data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value'
-                }
-            ],
-            series: [
-                {
-                    name: 'Forest',
-                    type: 'bar',
-                    barGap: 0,
-                    //label: labelOption,
-                    data: data01
-                },
-                {
-                    name: 'Steppe',
-                    type: 'bar',
-                    //label: labelOption,
-                    data: data02
-                }
-            ]
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+<script type="text/javascript">
+
+    // 编写自定义函数,创建标注
+    function addMarker(point) {
+        var marker = new BMap.Marker(point, {icon: myIcon});
+        //添加事件
+        marker.addEventListener("click", function (e) {
+            alert(e.point.lng + ", " + e.point.lat);
+        });
+        map.addOverlay(marker);// 将标注添加到地图中
+    }
+
+    //编写自定义函数alert
+    function alert(e){
+        $("body").append('<div id="msg"><div id="msg_top">信息<span class="msg_close">×</span></div><div id="msg_cont">'+e+'</div><div class="msg_close" id="msg_clear">确定</div></div>');
+        $(".msg_close").click(function (){
+            $("#msg").remove();
+        });
+    }
+
+    var map = new BMap.Map("container");
+    map.addControl(new BMap.NavigationControl());
+    map.addControl(new BMap.ScaleControl());
+    map.setDefaultCursor("crosshair");
+
+    var myIcon = new BMap.Icon("http://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {
+        offset: new BMap.Size(10, 25), // 指定定位位置
+        imageOffset: new BMap.Size(0, 0 - 10 * 25) // 设置图片偏移
     });
+
+
+    var point01 = new BMap.Point(113.9434615175, 22.5382465320);
+    map.centerAndZoom(point01, 10);
+    var point02 = new BMap.Point(114.0946602127, 22.5526403819);
+    map.centerAndZoom(point02, 10);
+    var point03 = new BMap.Point(113.8025775730, 22.7545883796);
+    map.centerAndZoom(point03, 10);
+    addMarker(point01);
+    addMarker(point02);
+    addMarker(point03);
+
+
 </script>
 
 </body>
